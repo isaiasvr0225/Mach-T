@@ -1,52 +1,63 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
-  <header>
-    <nav class="flex justify-between">
-      <img id="profile-img" src="./assets/profile.png" alt="Foto de perfil">
-      <img id="logo-img" src="./assets/logo.png" alt="Logo">
-      <img id="inbox-img" src="./assets/inbox.png" alt="Inbox">
-    </nav>
-    <hr>
-  </header>
+  <div>
+    <header>
+      <nav class="flex justify-between" >
+        <img id="profile-img" src="./assets/profile.png" alt="Foto de perfil">
+        <img id="logo-img" src="./assets/logo.png" alt="Logo">
+        <img id="inbox-img" src="./assets/inbox.png" alt="Inbox">
+      </nav>
+      <hr>
+    </header>
 
-  <RouterView/>
+    <router-view/>
 
-  <div id="boton_mas">
-    <img src="./assets/mas.png" alt="Publicar">
+    <div id="boton_mas">
+      <img id="masconfondo" src="./assets/mas.png" alt="Publicar">
+    </div>
+
+    <footer class="flex justify-between sticky bottom-0">
+      <router-link to="/" :class="{ 'menu-active': activeMenu === '' }" @click="setActiveMenu('')">
+        <img src="./assets/home.png" alt="" class="move-right-home">
+        <h2 class="move-left">Material reciente</h2>
+      </router-link>
+
+      <router-link to="/operativos" :class="{ 'menu-active': activeMenu === 'operativos' }" @click="setActiveMenu('operativos')">
+        <img src="./assets/operativos.png" alt="" class="move-left">
+        <h2 class="move-left">Operativos</h2>
+      </router-link>
+      
+      <router-link to="/buscar-material" :class="{ 'menu-active': activeMenu === 'buscar-material' }" @click="setActiveMenu('buscar-material')">
+        <img src="./assets/buscar.png" alt="" class="move-left">
+        <h2 class="move-left">Buscar material</h2>
+      </router-link>
+
+      <router-link to="/calculadora" :class="{ 'menu-active': activeMenu === 'promedio' }" @click="setActiveMenu('promedio')">
+        <img src="./assets/promedio.png" alt="" class="move-right">
+        <h2 class="move-right">Promedio</h2>
+      </router-link>
+
+      <router-link to="/ajustes" :class="{ 'menu-active': activeMenu === 'ajustes' }" @click="setActiveMenu('ajustes')">
+        <img src="./assets/ajustes.png" alt="" class="move-right">
+        <h2 class="move-left">Ajustes</h2>
+      </router-link>
+    </footer>
   </div>
-
-  <footer class="flex justify-between sticky bottom-0">
-    <RouterLink to="/">
-      <img src="./assets/home.png" alt="" class="move-right-home">
-      <h2 class="move-left">Material reciente</h2>
-    </RouterLink>
-    <!-- Repite lo siguiente para cada enlace -->
-    <RouterLink to="/operativos">
-      <img src="./assets/operativos.png" alt="" class="move-left">
-      <h2 class="move-left">Operativos</h2>
-    </RouterLink>
-    
-    <!-- Asegúrate de tener rutas definidas para cada componente -->
-    <RouterLink to="/buscar-material">
-      <img src="./assets/buscar.png" alt="" class="move-left">
-      <h2 class="move-left">Buscar material</h2>
-    </RouterLink>
-
-    <RouterLink to="/promedio">
-      <img src="./assets/promedio.png" alt="" class="move-right">
-      <h2 class="move-right">Promedio</h2>
-    </RouterLink>
-
-    <RouterLink to="/ajustes">
-      <img src="./assets/ajustes.png" alt="" class="move-right">
-      <h2 class="move-left">Ajustes</h2>
-    </RouterLink>
-  </footer>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      activeMenu: '', // Estado del menú activo
+    };
+  },
+  methods: {
+    setActiveMenu(menu) {
+      this.activeMenu = menu; // Método para cambiar el estado del menú
+    },
+  },
+};
+</script>
 
 <style scoped>
   h2 {
@@ -73,6 +84,8 @@ import { RouterLink, RouterView } from 'vue-router'
     height: 55px;
     margin-top: 10px;
     margin-left: 10px;
+   
+
   }
 
   #profile-img {
@@ -98,19 +111,20 @@ import { RouterLink, RouterView } from 'vue-router'
     width: 38px;
     height: 38px;
   }
+#masconfondo{  background-color: white;
+ border-radius: 50%;}
   #boton_mas {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  position: fixed;
-  bottom: 12%; /* Ajusta la distancia desde la parte inferior en porcentaje */
-  right: -71%; /* Ajusta la distancia desde la derecha en porcentaje */
-  padding: 4%; /* Ajusta el relleno en porcentaje */
-  width: 96%; /* Ajusta el ancho en porcentaje */
-  box-sizing: border-box;
-}
-
-
+    
+    flex-direction: row;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 12%;
+    right: -71%;
+    padding: 4%;
+    width: 96%;
+  
+    box-sizing: border-box;
+  }
 
   footer {
     display: flex;
@@ -128,5 +142,11 @@ import { RouterLink, RouterView } from 'vue-router'
 
   a {
     text-align: center;
+    color: #000; /* Asegura que el color del texto sea visible */
+    text-decoration: none; /* Elimina el subrayado predeterminado */
+  }
+
+  .menu-active {
+    color: #E3A811; /* Cambia el color del texto cuando está activo */
   }
 </style>
