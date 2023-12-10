@@ -1,10 +1,10 @@
 <template>
     <div class="calculadora">
       <h2>Calculadora</h2>
-      <input type="number" v-model="numeroMaterias" placeholder="Número de materias que diste...">
+      <input type="number" v-model.number="numeroMaterias" placeholder="Número de materias que diste...">
   
       <div class="scroll-container">
-        <table v-if="numeroMaterias > 0">
+        <table v-if="numeroMaterias > 0 && numeroMaterias <= 20">
           <thead>
             <tr>
               <th>Materia</th>
@@ -15,8 +15,8 @@
           <tbody>
             <tr v-for="(materia, index) in materias" :key="index">
               <td>{{ materia.nombre }}</td>
-              <td><input type="number" v-model="materia.calificacion" placeholder="Calificación"></td>
-              <td><input type="number" v-model="materia.creditos" placeholder="Créditos"></td>
+              <td><input type="number" v-model.number="materia.calificacion" placeholder="Calificación"></td>
+              <td><input type="number" v-model.number="materia.creditos" placeholder="Créditos"></td>
             </tr>
             <tr>
               <td colspan="3">
@@ -37,29 +37,35 @@
     name: 'VentanaMachT',
     data() {
       return {
-        numeroMaterias: '',
+        numeroMaterias: null,
         materias: [],
         promedioCalculado: null
       };
     },
     watch: {
       numeroMaterias() {
-        this.materias = Array.from({ length: parseInt(this.numeroMaterias) }, (_, index) => ({
+        this.materias = Array.from({ length: parseInt(this.numeroMaterias) || 0 }, (_, index) => ({
           nombre: `Materia ${index + 1}`,
           calificacion: 0,
           creditos: 0
         }));
       }
     },
+    computed: {
+      promedioCalculado() {
+        const totalCreditos = this.materias.reduce((total, materia) => total + Number(materia.creditos), 0);
+        const sumaPonderada = this.materias.reduce((suma, materia) => suma + (Number(materia.calificacion) * Number(materia.creditos)), 0);
+        return totalCreditos > 0 ? sumaPonderada / totalCreditos : null;
+      }
+    },
     methods: {
       calcularPromedio() {
-        const totalCreditos = this.materias.reduce((total, materia) => total + parseInt(materia.creditos), 0);
-        const sumaPonderada = this.materias.reduce((suma, materia) => suma + (parseInt(materia.calificacion) * parseInt(materia.creditos)), 0);
-        this.promedioCalculado = sumaPonderada / totalCreditos;
+        // Mantén este método si hay alguna lógica adicional que deseas ejecutar al hacer clic en el botón.
       }
     }
   };
   </script>
+  
   
   <style scoped>
   h2 {

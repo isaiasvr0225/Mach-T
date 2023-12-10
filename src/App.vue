@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>
+    <header v-if="activeMenu !== 'ajustes'">
       <nav class="flex justify-between" >
         <img id="profile-img" src="./assets/profile.png" alt="Foto de perfil">
         <img id="logo-img" src="./assets/logo.png" alt="Logo">
@@ -11,7 +11,7 @@
 
     <router-view/>
 
-    <div id="boton_mas">
+    <div id="boton_mas" v-if="activeMenu !== 'ajustes'">
       <img id="masconfondo" src="./assets/mas.png" alt="Publicar">
     </div>
 

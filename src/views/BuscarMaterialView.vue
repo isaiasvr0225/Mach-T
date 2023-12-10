@@ -13,7 +13,9 @@ export default {
     return {
       busqueda: '' // Variable para almacenar la entrada del usuario en el buscador
     };
-  }
+  },
+  
+  
 };
 </script>
 
@@ -49,4 +51,6 @@ input {
   border: 2px solid #FFA500; /* Borde naranja */
   background-color: #FAEDDA; /* Fondo FAEDDA */
 }
+
+/* Otros estilos si es necesario */
 </style>
