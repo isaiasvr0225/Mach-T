@@ -11,29 +11,42 @@ import { RouterLink, RouterView } from 'vue-router'
     </nav>
     <hr>
   </header>
+
+  <RouterView/>
+
+  <div id="boton_mas">
+    <img src="./assets/mas.png" alt="Publicar">
+  </div>
+
   <footer class="flex justify-between sticky bottom-0">
-    <a>
+    <RouterLink to="/">
       <img src="./assets/home.png" alt="" class="move-right-home">
       <h2 class="move-left">Material reciente</h2>
-    </a>
-    <a>
+    </RouterLink>
+    <!-- Repite lo siguiente para cada enlace -->
+    <RouterLink to="/operativos">
       <img src="./assets/operativos.png" alt="" class="move-left">
       <h2 class="move-left">Operativos</h2>
-    </a>
-    <a>
+    </RouterLink>
+    
+    <!-- Asegúrate de tener rutas definidas para cada componente -->
+    <RouterLink to="/buscar-material">
       <img src="./assets/buscar.png" alt="" class="move-left">
       <h2 class="move-left">Buscar material</h2>
-    </a>
-    <a>
+    </RouterLink>
+
+    <RouterLink to="/promedio">
       <img src="./assets/promedio.png" alt="" class="move-right">
       <h2 class="move-right">Promedio</h2>
-    </a>
-    <a>
+    </RouterLink>
+
+    <RouterLink to="/ajustes">
       <img src="./assets/ajustes.png" alt="" class="move-right">
       <h2 class="move-left">Ajustes</h2>
-    </a>
+    </RouterLink>
   </footer>
 </template>
+
 
 <style scoped>
   h2 {
@@ -55,10 +68,11 @@ import { RouterLink, RouterView } from 'vue-router'
     margin-left: 13px;
   }
 
-  div {
-    height: 5px;
-    background-color: black;
-    width: 100%;
+  div img {
+    width: 55px;
+    height: 55px;
+    margin-top: 10px;
+    margin-left: 10px;
   }
 
   #profile-img {
@@ -84,6 +98,19 @@ import { RouterLink, RouterView } from 'vue-router'
     width: 38px;
     height: 38px;
   }
+  #boton_mas {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 12%; /* Ajusta la distancia desde la parte inferior en porcentaje */
+  right: -71%; /* Ajusta la distancia desde la derecha en porcentaje */
+  padding: 4%; /* Ajusta el relleno en porcentaje */
+  width: 96%; /* Ajusta el ancho en porcentaje */
+  box-sizing: border-box;
+}
+
+
 
   footer {
     display: flex;
