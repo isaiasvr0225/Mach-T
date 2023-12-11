@@ -21,7 +21,7 @@
             <tr>
               <td colspan="3">
                 <div class="calcular">
-                  <button @click="calcularPromedio">Calcular Promedio</button>
+                  
                   <p v-if="promedioCalculado">Promedio Ponderado: {{ promedioCalculado.toFixed(2) }}</p>
                 </div>
               </td>
