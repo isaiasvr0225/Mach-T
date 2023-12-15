@@ -6,26 +6,22 @@ const router = createRouter({
     {
       path: '/buscar-material',
       name: 'buscar-material',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/BuscarMaterialView.vue')
     },
     {
       path: '/calculadora',
       name: 'calculadora',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/calculadora.vue')
     },
     {
       path: '/ajustes',
       name: 'ajustes',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/ajustes.vue')
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: () => import('../views/chat.vue')
     }
   ]
 })

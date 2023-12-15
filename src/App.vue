@@ -4,7 +4,9 @@
       <nav class="flex justify-between" >
         <img id="profile-img" src="./assets/profile.png" alt="Foto de perfil">
         <img id="logo-img" src="./assets/logo.png" alt="Logo">
-        <img id="inbox-img" src="./assets/inbox.png" alt="Inbox">
+        <router-link to="/chat">
+          <img id="inbox-img" src="./assets/inbox.png" alt="Inbox">
+        </router-link>
       </nav>
       <hr>
     </header>
