@@ -12,6 +12,7 @@
       <input type="checkbox" v-model="modoOscuro" />
       <span class="slider round"></span>
     </label>
+    <div class="modo-oscuro-texto">Modo oscuro</div>
   </div>
 </template>
 
@@ -28,6 +29,9 @@ export default {
 
 <style scoped>
 .ventana-macht {
+  font-family: 'Inter', sans-serif;
+}
+.ventana-macht {
   text-align: center;
   padding: 20px;
   transition: background-color 0.3s, color 0.3s; /* Transición para el modo oscuro */
@@ -39,7 +43,7 @@ export default {
 }
 
 #profile-img {
-  width: 100%;
+  width: 70%;
   max-width: 60vh;
   display: block;
   margin: 0 auto;
@@ -58,11 +62,11 @@ export default {
 
 .switch {
   position: absolute;
-  top: 10%;
-  right: 0%;
+  top: 50%;
+  right: 20%; /* Ajusta el valor según tu diseño */
   display: inline-block;
-  width: 16%;
-  height: 4%;
+  width: 60px; /* Tamaño fijo del toggle */
+  height: 32px; /* Altura fija del toggle */
 }
 
 .switch input {
@@ -114,6 +118,15 @@ input:checked + .slider:before {
 .modo-oscuro {
   background-color: #333;
   color: #fff;
+}
+.modo-oscuro-texto {
+  position: absolute;
+  top: 52%;
+  right: 46%; /* Ajusta el valor según tu diseño */
+  transform: translate(0, -50%);
+  color:#3C2F80;;
+  font-size: 1.5rem; /* Utiliza unidades relativas para hacer el diseño más adaptable */
+  font-family: 'Inter', sans-serif; /* Añade la fuente Inter */
 }
 
 </style>
