@@ -11,24 +11,29 @@
       <input type="checkbox" v-model="modoOscuro" />
       <span class="slider round"></span>
     </label>
+
     <div class="modo-oscuro-texto">Modo oscuro</div>
     <div class="Acerca_de">Acerca De ‎ ‎</div>
     <div class="mach-t">Mach-T</div>
     <div class="sesion">Cerrar sesión</div>
+
     <label class="acerca-de-container">
-     <div class="info-symbol-container">
+      <div class="info-symbol-container">
         <img id="info" src="../assets/info.png" alt="info" />
       </div>
     </label>
-    <label class="logo_mover"> <div class="logo">
+
+    <label class="logo_mover">
+      <div class="logo">
         <img id="logo" src="../assets/logo.png" alt="logo" />
       </div>
     </label>
-    <label class="salir_mover"> <div class="cerrar">
+
+    <label class="salir_mover">
+      <div class="cerrar">
         <img id="cerrar" src="../assets/cerrar.png" alt="cerrar" />
       </div>
     </label>
-    
   </div>
 </template>
 
@@ -45,7 +50,6 @@ export default {
 
 <style scoped>
 .ventana-macht {
-
   text-align: center;
   padding: 20px;
   transition: background-color 0.3s, color 0.3s;
@@ -79,7 +83,6 @@ export default {
   top: 52%;
   right: 41%;
   transform: translate(0, -50%);
- 
   font-size: 1.5rem;
 }
 
@@ -124,30 +127,54 @@ input:checked + .slider:before {
   color: #fff;
 }
 
-.modo-oscuro-texto {
+.modo-oscuro-texto,
+.Acerca_de,
+.mach-t,
+.sesion,
+.acerca-de-container,
+.logo_mover,
+.salir_mover {
   position: absolute;
+  transform: translate(0, -50%);
+}
+
+.modo-oscuro-texto,
+.Acerca_de,
+.sesion {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.modo-oscuro-texto {
   top: 52%;
   right: 46%;
-  transform: translate(0, -50%);
   color: #000000;
-  font-size: 1.5rem;
-  font-weight: bold; 
+}
+
+.Acerca_de {
+  top: 57%;
+  right: 52%;
+  color: #000000;
+}
+
+.mach-t {
+  top: 80%;
+  right: 46%;
+  color: #3C2F80;
+  font-size: 2.4rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+}
+
+.sesion {
+  top: 63%;
+  right: 48%;
+  color: #000000;
 }
 
 .acerca-de-container {
- position: absolute;
   top: 57%;
   right: 44%;
-  transform: translate(0, -50%);
-}
-.Acerca_de {
-  position: absolute;
-  top: 57%;
-  right: 52%;
-  transform: translate(0, -50%);
-  color: #000000;
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .info-symbol-container {
@@ -158,49 +185,29 @@ input:checked + .slider:before {
   width: 30px;
   margin-right: 5px;
 }
-.logo_mover { 
- position: absolute;
-  top: 80%;
-  right: 0%;
-  transform: translate(0, -50%);
-}
-.logo {
-  margin-right: 0%;
-}
-.logo img {
-  width: 150px;
-  margin-right: 5px;}
-.mach-t{
-  position: absolute;
-  top: 80%;
-  right: 46%;
-  transform: translate(0, -50%);
-  color: #3C2F80;
-  font-size: 2.4rem;
-  font-family: 'Inter', sans-serif;
-  font-weight: bold;
-}
-.sesion{
-  position: absolute;
-  top: 63%;
-  right: 48%;
-  transform: translate(0, -50%);
-  color: #000000;
-  font-size: 1.5rem;
-  font-weight: bold;
-  
 
+.logo_mover {
+  position: absolute;
+  top: 80%;
+  left: 70%;
+  transform: translate(-50%, -50%);
 }
-.salir_mover { 
- position: absolute;
+s.logo img {
+  width: 150px;
+  margin-right: 5px;
+}
+
+.salir_mover {
   top: 63%;
   right: 38%;
-  transform: translate(0, -50%);
 }
+
 .cerrar img {
   width: 25px;
-  margin-right: 5px;}
-  .cerrar {
+  margin-right: 5px;
+}
+
+.cerrar {
   margin-right: 0%;
 }
 </style>
